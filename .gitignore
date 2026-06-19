@@ -1,0 +1,6 @@
+.DS_Store
+.playwright-cli/
+output/playwright/
+config.local.php
+logs/*.log
+!logs/.gitkeep

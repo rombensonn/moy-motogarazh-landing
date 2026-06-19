@@ -5,7 +5,7 @@ declare(strict_types=1);
 $config = require __DIR__ . '/config.php';
 $business = $config['business'];
 $siteUrl = rtrim((string) $config['site_url'], '/');
-$assetVersion = '1.1.2';
+$assetVersion = '1.2.0';
 
 function e(mixed $value): string
 {
@@ -165,6 +165,10 @@ $schema = [
     <a class="skip-link" href="#main">К содержанию</a>
 
     <header class="site-header">
+        <div class="promo-bar">
+            <span>Запись на диагностику сегодня: напишите модель и симптом в Telegram</span>
+            <a href="<?= e($business['telegram_url']) ?>" target="_blank" rel="noopener">Открыть чат</a>
+        </div>
         <div class="container header-inner">
             <a class="brand" href="#top" aria-label="Мой Мотогараж">
                 <span class="brand-mark" aria-hidden="true">ММ</span>
@@ -184,69 +188,97 @@ $schema = [
 
     <main id="main">
         <section class="hero" id="top">
-            <div class="hero-shell">
-                <div class="visual-cluster cluster-left" aria-hidden="true">
-                    <span class="confetti square-a"></span>
-                    <span class="confetti square-b"></span>
-                    <span class="confetti square-c"></span>
-                    <span class="confetti dot-a"></span>
-                    <picture class="cluster-photo cluster-photo-main">
-                        <source srcset="./images/yandex-photo-3.webp" type="image/webp">
-                        <img src="./images/yandex-photo-3.jpg" alt="" width="220" height="220">
-                    </picture>
-                    <picture class="cluster-photo cluster-photo-small cluster-photo-lower">
-                        <source srcset="./images/yandex-photo-4.webp" type="image/webp">
-                        <img src="./images/yandex-photo-4.jpg" alt="" width="170" height="170">
-                    </picture>
-                    <span class="round-badge badge-green">ТО</span>
-                    <span class="round-badge badge-red">oil</span>
-                    <span class="round-badge badge-blue">4.9</span>
-                    <span class="round-badge badge-cream">11–20</span>
-                    <span class="mini-note note-left">25 оценок · 20 отзывов</span>
-                </div>
-
-                <div class="container hero-inner">
-                    <p class="eyebrow">Зеленоград · <?= e($business['hours']) ?></p>
-                    <h1>Ваше преимущество на дороге начинается с сервиса.</h1>
-                    <p class="hero-copy">Ремонт, ТО и подготовка к сезону для мотоциклов, эндуро и трициклов. Без угадываний: сначала разбираемся в задаче, затем согласуем работы и держим связь до выдачи.</p>
-                    <div class="hero-actions" aria-label="Быстрые действия">
-                        <a class="button button-dark" href="<?= e($business['telegram_url']) ?>" target="_blank" rel="noopener">Записаться</a>
-                        <a class="button button-light" href="tel:<?= e($business['phone_href']) ?>">Позвонить</a>
+            <div class="container hero-shell">
+                <div class="hero-grid">
+                    <div class="hero-heading">
+                        <p class="eyebrow">Мотосервис · Зеленоград</p>
+                        <h1>Мотосервис в Зеленограде для уверенной езды.</h1>
+                    </div>
+                    <div class="hero-aside">
+                        <p>ТО, ремонт и подготовка к сезону без догадок: описываете симптомы, мы проверяем узлы, согласуем работы и держим связь до выдачи.</p>
+                        <div class="hero-actions" aria-label="Быстрые действия">
+                            <a class="button button-dark" href="<?= e($business['telegram_url']) ?>" target="_blank" rel="noopener">Записаться</a>
+                            <a class="button button-light" href="tel:<?= e($business['phone_href']) ?>">Позвонить</a>
+                        </div>
                     </div>
                 </div>
-
-                <div class="visual-cluster cluster-right" aria-hidden="true">
-                    <span class="confetti square-d"></span>
-                    <span class="confetti square-e"></span>
-                    <span class="confetti square-f"></span>
-                    <span class="confetti dot-b"></span>
-                    <picture class="cluster-photo cluster-photo-main">
-                        <source srcset="./images/yandex-photo-1.webp" type="image/webp">
-                        <img src="./images/yandex-photo-1.jpg" alt="" width="220" height="220">
-                    </picture>
-                    <picture class="cluster-photo cluster-photo-small cluster-photo-lower">
-                        <source srcset="./images/yandex-photo-6.webp" type="image/webp">
-                        <img src="./images/yandex-photo-6.jpg" alt="" width="170" height="170">
-                    </picture>
-                    <span class="round-badge badge-purple">вилка</span>
-                    <span class="round-badge badge-teal">цепь</span>
-                    <span class="round-badge badge-navy">тормоза</span>
-                    <span class="round-badge badge-orange">от 1500 ₽</span>
-                    <span class="mini-note note-right">Новокрюковская 3Б</span>
+                <div class="trust-strip" aria-label="Ключевые факты">
+                    <span>Рейтинг <?= e($business['rating']) ?> на Яндекс Картах</span>
+                    <span><?= e($business['hours']) ?></span>
+                    <span>Новокрюковская ул., 3Б</span>
+                    <span>ТО от 1 500 ₽</span>
                 </div>
-            </div>
-            <div class="wave-divider wave-to-sand" aria-hidden="true">
-                <svg viewBox="0 0 1440 130" preserveAspectRatio="none" focusable="false">
-                    <path d="M0 52C196 24 389 33 570 48C792 67 985 82 1221 58C1303 50 1377 37 1440 22V130H0V52Z"></path>
-                </svg>
+                <div class="hero-media" aria-label="Мой Мотогараж: рабочая зона и диагностика">
+                    <picture>
+                        <source srcset="./images/yandex-photo-1.webp" type="image/webp">
+                        <img src="./images/yandex-photo-1.jpg" alt="Рабочая зона мотосервиса Мой Мотогараж в Зеленограде" width="1280" height="720">
+                    </picture>
+                    <div class="diagnostic-window" aria-hidden="true">
+                        <div class="window-dots"><span></span><span></span><span></span></div>
+                        <div class="window-title">Диагностика перед ремонтом</div>
+                        <div class="window-row"><span>Масло / фильтры</span><strong>готово</strong></div>
+                        <div class="window-row"><span>Тормоза</span><strong>проверка</strong></div>
+                        <div class="window-row"><span>Вилка</span><strong>согласовать</strong></div>
+                        <div class="window-progress"><span></span></div>
+                    </div>
+                </div>
+                <div class="hero-ruler" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </section>
 
-        <section class="section" id="services">
-            <div class="container section-heading">
-                <p class="eyebrow">Услуги</p>
-                <h2>Сразу выберите задачу: что делаем, когда это нужно и почему у нас.</h2>
-                <p>Второй блок ведёт по логике владельца: сначала понять свою ситуацию, затем выбрать услугу и быстро перейти к записи.</p>
+        <section class="section services-section" id="services">
+            <div class="container service-intro">
+                <div>
+                    <p class="eyebrow">Услуги</p>
+                    <h2>Всё, что нужно для аккуратного обслуживания мототехники.</h2>
+                    <p>Второй блок ведёт по логике владельца: что за услуга, в каких ситуациях она нужна и почему её стоит делать у нас.</p>
+                    <div class="hero-actions" aria-label="Быстрые действия">
+                        <a class="button button-dark" href="#lead">Подобрать услугу</a>
+                        <a class="button button-light" href="#prices">Смотреть цены</a>
+                    </div>
+                </div>
+                <div class="service-map" aria-hidden="true">
+                    <span class="map-ring ring-a"></span>
+                    <span class="map-ring ring-b"></span>
+                    <span class="map-core">ММ</span>
+                    <span class="map-label label-a">ТО</span>
+                    <span class="map-label label-b">тормоза</span>
+                    <span class="map-label label-c">вилка</span>
+                    <span class="map-label label-d">двигатель</span>
+                </div>
             </div>
             <div class="container service-grid">
                 <?php foreach ($services as $index => $service): ?>
@@ -283,6 +315,14 @@ $schema = [
                         <source srcset="./images/yandex-photo-1.webp" type="image/webp">
                         <img src="./images/yandex-photo-1.jpg" alt="Мотосервис Мой Мотогараж, рабочая зона в Зеленограде" width="1024" height="577" loading="lazy">
                     </picture>
+                    <div class="quality-chart" aria-hidden="true">
+                        <span>Контроль работ</span>
+                        <svg viewBox="0 0 420 140" focusable="false">
+                            <path d="M18 108C62 98 84 50 125 57C165 64 176 93 216 82C255 72 272 30 315 39C351 47 365 78 402 64"></path>
+                            <line x1="18" y1="110" x2="402" y2="110"></line>
+                            <line x1="18" y1="24" x2="18" y2="110"></line>
+                        </svg>
+                    </div>
                 </div>
                 <div class="trust-copy">
                     <p class="eyebrow">Почему приезжают</p>
@@ -311,6 +351,18 @@ $schema = [
                 <h2>Ориентиры “от”, чтобы быстро понять порядок работ.</h2>
                 <p>Финальная стоимость зависит от модели, состояния узлов и расходников. Перед ремонтом согласуем объём и цену.</p>
             </div>
+            <div class="container price-scene">
+                <picture>
+                    <source srcset="./images/yandex-photo-5.webp" type="image/webp">
+                    <img src="./images/yandex-photo-5.jpg" alt="Рабочее место мотомеханика в Мой Мотогараж" width="1180" height="520" loading="lazy">
+                </picture>
+                <div class="estimate-panel" aria-hidden="true">
+                    <div><span>Заявка</span><strong>симптомы</strong></div>
+                    <div><span>Осмотр</span><strong>узлы</strong></div>
+                    <div><span>Согласование</span><strong>цена</strong></div>
+                    <div><span>Статус</span><strong>в работе</strong></div>
+                </div>
+            </div>
             <div class="container price-board">
                 <?php foreach ($prices as $price): ?>
                     <div class="price-row">
@@ -321,7 +373,7 @@ $schema = [
             </div>
         </section>
 
-        <section class="section section-gradient">
+        <section class="section blocks-section">
             <div class="container section-heading">
                 <p class="eyebrow">Как записаться</p>
                 <h2>Три шага от сообщения до готовой техники.</h2>
@@ -361,6 +413,12 @@ $schema = [
             <div class="container section-heading">
                 <p class="eyebrow">Фото</p>
                 <h2>Реальные снимки мастерской с Яндекс Карт.</h2>
+            </div>
+            <div class="container photo-ledger" aria-hidden="true">
+                <span>01 · мастерская</span>
+                <span>02 · техника</span>
+                <span>03 · детали</span>
+                <span>04 · выдача</span>
             </div>
             <div class="container gallery-grid">
                 <?php foreach ($gallery as $index => $image): ?>

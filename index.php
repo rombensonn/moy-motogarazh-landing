@@ -5,7 +5,7 @@ declare(strict_types=1);
 $config = require __DIR__ . '/config.php';
 $business = $config['business'];
 $siteUrl = rtrim((string) $config['site_url'], '/');
-$assetVersion = '1.0.0';
+$assetVersion = '1.1.2';
 
 function e(mixed $value): string
 {
@@ -184,47 +184,61 @@ $schema = [
 
     <main id="main">
         <section class="hero" id="top">
-            <div class="container hero-inner">
-                <p class="eyebrow">Зеленоград · <?= e($business['hours']) ?></p>
-                <h1>Мотосервис в Зеленограде, которому доверяют свою технику.</h1>
-                <p class="hero-copy">Ремонт, ТО и подготовка к сезону для мотоциклов, эндуро и трициклов. Сначала разбираемся в задаче, потом согласуем работы и держим связь до выдачи.</p>
-                <div class="hero-actions" aria-label="Быстрые действия">
-                    <a class="button button-dark" href="<?= e($business['telegram_url']) ?>" target="_blank" rel="noopener">Записаться в Telegram</a>
-                    <a class="button button-light" href="tel:<?= e($business['phone_href']) ?>">Позвонить</a>
-                </div>
-                <div class="hero-stage" aria-label="Ключевые факты о мотосервисе">
-                    <div class="stage-gradient" aria-hidden="true"></div>
-                    <article class="float-card float-card-large card-left">
-                        <span class="card-kicker">Рейтинг на Яндекс Картах</span>
-                        <strong><?= e($business['rating']) ?> из 5</strong>
-                        <span><?= e($business['rating_count']) ?> оценок · <?= e($business['review_count']) ?> отзывов</span>
-                    </article>
-                    <article class="float-card float-card-compact card-center">
-                        <span class="card-kicker">ТО</span>
-                        <strong>от 1 500 ₽</strong>
-                    </article>
-                    <article class="float-card float-card-large card-right">
-                        <span class="card-kicker">Адрес</span>
-                        <strong>Новокрюковская 3Б</strong>
-                        <span>Ежедневно 11:00–20:00</span>
-                    </article>
-                    <article class="float-card float-card-compact card-low">
-                        <span class="card-kicker">Работы</span>
-                        <strong>Тормоза · вилка · сцепление</strong>
-                    </article>
-                    <picture class="photo-chip photo-chip-a">
+            <div class="hero-shell">
+                <div class="visual-cluster cluster-left" aria-hidden="true">
+                    <span class="confetti square-a"></span>
+                    <span class="confetti square-b"></span>
+                    <span class="confetti square-c"></span>
+                    <span class="confetti dot-a"></span>
+                    <picture class="cluster-photo cluster-photo-main">
                         <source srcset="./images/yandex-photo-3.webp" type="image/webp">
-                        <img src="./images/yandex-photo-3.jpg" alt="Мотоцикл на обслуживании в Мой Мотогараж" width="112" height="112">
+                        <img src="./images/yandex-photo-3.jpg" alt="" width="220" height="220">
                     </picture>
-                    <picture class="photo-chip photo-chip-b">
+                    <picture class="cluster-photo cluster-photo-small cluster-photo-lower">
                         <source srcset="./images/yandex-photo-4.webp" type="image/webp">
-                        <img src="./images/yandex-photo-4.jpg" alt="Детали мототехники в мастерской" width="92" height="92">
+                        <img src="./images/yandex-photo-4.jpg" alt="" width="170" height="170">
                     </picture>
-                    <picture class="photo-chip photo-chip-c">
-                        <source srcset="./images/yandex-photo-6.webp" type="image/webp">
-                        <img src="./images/yandex-photo-6.jpg" alt="Реальное фото мотосервиса с Яндекс Карт" width="80" height="80">
-                    </picture>
+                    <span class="round-badge badge-green">ТО</span>
+                    <span class="round-badge badge-red">oil</span>
+                    <span class="round-badge badge-blue">4.9</span>
+                    <span class="round-badge badge-cream">11–20</span>
+                    <span class="mini-note note-left">25 оценок · 20 отзывов</span>
                 </div>
+
+                <div class="container hero-inner">
+                    <p class="eyebrow">Зеленоград · <?= e($business['hours']) ?></p>
+                    <h1>Ваше преимущество на дороге начинается с сервиса.</h1>
+                    <p class="hero-copy">Ремонт, ТО и подготовка к сезону для мотоциклов, эндуро и трициклов. Без угадываний: сначала разбираемся в задаче, затем согласуем работы и держим связь до выдачи.</p>
+                    <div class="hero-actions" aria-label="Быстрые действия">
+                        <a class="button button-dark" href="<?= e($business['telegram_url']) ?>" target="_blank" rel="noopener">Записаться</a>
+                        <a class="button button-light" href="tel:<?= e($business['phone_href']) ?>">Позвонить</a>
+                    </div>
+                </div>
+
+                <div class="visual-cluster cluster-right" aria-hidden="true">
+                    <span class="confetti square-d"></span>
+                    <span class="confetti square-e"></span>
+                    <span class="confetti square-f"></span>
+                    <span class="confetti dot-b"></span>
+                    <picture class="cluster-photo cluster-photo-main">
+                        <source srcset="./images/yandex-photo-1.webp" type="image/webp">
+                        <img src="./images/yandex-photo-1.jpg" alt="" width="220" height="220">
+                    </picture>
+                    <picture class="cluster-photo cluster-photo-small cluster-photo-lower">
+                        <source srcset="./images/yandex-photo-6.webp" type="image/webp">
+                        <img src="./images/yandex-photo-6.jpg" alt="" width="170" height="170">
+                    </picture>
+                    <span class="round-badge badge-purple">вилка</span>
+                    <span class="round-badge badge-teal">цепь</span>
+                    <span class="round-badge badge-navy">тормоза</span>
+                    <span class="round-badge badge-orange">от 1500 ₽</span>
+                    <span class="mini-note note-right">Новокрюковская 3Б</span>
+                </div>
+            </div>
+            <div class="wave-divider wave-to-sand" aria-hidden="true">
+                <svg viewBox="0 0 1440 130" preserveAspectRatio="none" focusable="false">
+                    <path d="M0 52C196 24 389 33 570 48C792 67 985 82 1221 58C1303 50 1377 37 1440 22V130H0V52Z"></path>
+                </svg>
             </div>
         </section>
 

@@ -156,6 +156,7 @@ $schema = [
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;650;750;800;850;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="preload" as="image" href="./images/yandex-photo-1.webp" type="image/webp">
     <link rel="stylesheet" href="./css/styles.css?v=<?= e($assetVersion) ?>">
     <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?></script>
